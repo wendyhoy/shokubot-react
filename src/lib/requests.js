@@ -1,4 +1,4 @@
-const DOMAIN = 'https://f101fc2f.ngrok.io';
+const DOMAIN = process.env.REACT_APP_DOMAIN;
 const API_PREFIX = '/api/v1';
 const BASE_URL = `${DOMAIN}${API_PREFIX}`;
 
