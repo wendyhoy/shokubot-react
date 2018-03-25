@@ -12,7 +12,10 @@ class TeamShowPage extends Component {
   }
 
   componentDidMount () {
-    Team.findById(44)
+
+    const teamId = this.props.match.params.id;
+
+    Team.findById(teamId)
       .then(team => {
         this.setState({
           team: team

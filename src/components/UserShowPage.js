@@ -12,10 +12,13 @@ class UserShowPage extends Component {
   }
 
   componentDidMount () {
-    User.findById(14)
+
+    const userId = this.props.match.params.id;
+
+    User.findById(userId)
       .then(user => {
         this.setState({
-          user: user
+          user
         })
       });
   }
