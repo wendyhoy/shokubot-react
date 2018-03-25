@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-
-import AddToSlack from './AddToSlack';
-import SignInWithSlack from './SignInWithSlack';
-import TeamIndexPage from './TeamIndexPage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './HomePage';
 import TeamShowPage from './TeamShowPage';
 import UserShowPage from './UserShowPage';
 
@@ -11,21 +8,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">shokubot</h1>
-        </header>
-        <p className="App-intro">
-          Welcome to shokubot
-        </p>
-
-        <AddToSlack />
-        <SignInWithSlack />
-        <TeamIndexPage />
-        <TeamShowPage />
-        <UserShowPage />
-
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/teams" component={TeamShowPage}/>
+          <Route path="/users" component={UserShowPage}/>
+        </Switch>
+      </Router>
     );
   }
 }
