@@ -29,7 +29,7 @@ class TeamShowPage extends Component {
     const { team_name, answers=[] } = team;
 
     return (
-      <main>
+      <div className="uk-container">
         <h1>{team_name}</h1>
         <ul>
           {
@@ -43,7 +43,7 @@ class TeamShowPage extends Component {
             )
           }
         </ul>
-      </main>
+      </div>
     );
   }
 }

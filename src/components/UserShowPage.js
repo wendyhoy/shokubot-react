@@ -29,7 +29,7 @@ class UserShowPage extends Component {
     const { user_name, team_name, answers=[] } = user;
 
     return (
-      <main>
+      <div className="uk-container">
         <h1>{user_name}</h1>
         <p>{team_name}</p>
         <ul>
@@ -44,7 +44,7 @@ class UserShowPage extends Component {
             )
           }
         </ul>
-      </main>
+      </div>
     );
   }
 }

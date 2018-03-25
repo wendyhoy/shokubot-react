@@ -29,9 +29,9 @@ class SigningInPage extends Component {
   render () {
 
     return (
-      <main>
+      <div className="uk-container">
         <h1>Signing in...</h1>
-      </main>
+      </div>
     );
   }
 }

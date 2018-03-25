@@ -6,7 +6,7 @@ function SignInWithSlack () {
   const HREF = `https://slack.com/oauth/authorize?scope=identity.basic&client_id=305695056211.305695845171&redirect_uri=${encodeURIComponent(REDIRECT_URL)}`;
 
   return (
-    <a href={HREF}>
+    <a href={HREF} className="uk-margin-left">
       <img 
         alt="Sign in with Slack" 
         height="40" 
