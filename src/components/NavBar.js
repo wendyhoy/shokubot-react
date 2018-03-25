@@ -9,7 +9,7 @@ function NavBar () {
         <ul className="uk-navbar-nav">
           <li>
             <NavLink className="uk-navbar-item uk-logo" exact to="/">
-              <img src="/images/logo-64.png" width="50px" className="uk-margin-small-right" alt="shokubot logo" />
+              <img src="/images/logo-64.png" id="logo" className="uk-margin-small-right" alt="shokubot" />
               shokubot
             </NavLink>
           </li>

@@ -1,0 +1,11 @@
+h1.uk-heading-primary {
+  font-weight: 200;
+}
+
+p {
+  font-weight: 200;
+}
+
+p.uk-text-lead {
+  letter-spacing: 0.5px;
+}

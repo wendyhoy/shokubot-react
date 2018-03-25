@@ -19,6 +19,10 @@ nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a:hover {
   color: rgb(255, 255, 255, 1.0);
 }
 
+#logo {
+  width: 50px;
+}
+
 @media (min-width: 640px) {
   nav.uk-navbar-container[uk-navbar] {
     padding-left: 15px;

@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import TeamShowPage from './TeamShowPage';
 import UserShowPage from './UserShowPage';
 import SigningInPage from './SigningInPage';
+import './App.css';
 
 class App extends Component {
 
