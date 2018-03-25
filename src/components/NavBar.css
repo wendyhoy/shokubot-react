@@ -1,0 +1,34 @@
+nav.uk-navbar-container[uk-navbar] {
+  background-color: #f27c61;
+}
+
+nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a {
+  color: rgb(255, 255, 255, 0.9);
+  font-weight: 200;
+  font-size: 15px;
+  text-transform: lowercase;
+}
+
+nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a.uk-logo {
+  color: rgb(255, 255, 255, 1.0);
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a:hover {
+  color: rgb(255, 255, 255, 1.0);
+}
+
+@media (min-width: 640px) {
+  nav.uk-navbar-container[uk-navbar] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (min-width: 960px) {
+  nav.uk-navbar-container[uk-navbar] {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
