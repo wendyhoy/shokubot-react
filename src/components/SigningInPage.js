@@ -8,17 +8,20 @@ class SigningInPage extends Component {
 
     const query = new URLSearchParams(this.props.location.search);
     const verificationCode = query.get('id');
+    const { onSignIn } = this.props;
   
     Token
       .create({
         code: verificationCode
       })
-      .then(data => {
+      .then(data => {      
         const { jwt } = data;
         const payload = jwtDecode(jwt);
         const { user_id } = payload;
 
         localStorage.setItem('jwt', jwt);
+        onSignIn();
+
         this.props.history.push(`/users/${user_id}`);
       })
       .catch(error => {
@@ -30,7 +33,9 @@ class SigningInPage extends Component {
 
     return (
       <div className="uk-container">
-        <h1>Signing in...</h1>
+        <header className="uk-margin-large-top uk-margin-large-bottom">
+          <h1 className="uk-heading-primary">Signing in...</h1>
+        </header>
       </div>
     );
   }

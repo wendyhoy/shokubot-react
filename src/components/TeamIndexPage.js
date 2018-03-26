@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Team } from '../lib/requests';
+import ErrorPage from './ErrorPage';
+import LoadingPage from './LoadingPage';
 
 class TeamIndexPage extends Component {
 
@@ -7,32 +9,64 @@ class TeamIndexPage extends Component {
     super(props);
 
     this.state = {
-      teams: []
+      teams: null,
+      error: null
     }
   }
 
   componentDidMount () {
+    
     Team.all()
-      .then(teams => {
-        this.setState({
-          teams: teams
-        })
+      .then(res => {
+
+        if (res.status !== 200) {
+          this.setState({
+            error: res
+          });
+        }
+        else {
+          this.setState({
+            teams: res.json
+          });
+        }
+
       });
   }
 
   render () {
 
-    const { teams } = this.state;
+    // Show loading page
+    const { teams, error } = this.state;
+    if (error === null && teams === null) {
+      return (
+        <LoadingPage />
+      );
+    }
 
+    // Show error page
+    if (error !== null) {
+      return (
+        <ErrorPage error={error}/>
+      );
+    }
+
+    const { team_names } = teams;
+
+    // Otherwise, show results
     return (
-      <main>
-        <h1>Teams</h1>
-        <ul>
-          {
-            teams.map((team, index) => <li key={index}>{team.slack_team_name}</li>)
-          }
-        </ul>
-      </main>
+      
+      <div className="uk-container">
+        <header className="uk-margin-large-top uk-margin-large-bottom">
+          <h1 className="uk-heading-primary">Teams</h1>
+        </header>
+        <main>
+          <ul>
+            {
+              team_names.map((team, index) => <li key={index}>{team.slack_team_name}</li>)
+            }
+          </ul>
+        </main>
+      </div>
     );
   }
 }

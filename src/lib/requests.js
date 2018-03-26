@@ -32,7 +32,12 @@ const Team = {
   },
 
   findById (id) {
-    return fetch(`${BASE_URL}/teams/${id}`)
+    return fetch(`${BASE_URL}/teams/${id}`,
+    {
+      headers: {
+        'Authorization': getJWT()
+      }      
+    })
       .then(res => res.json());
   }
 
@@ -41,7 +46,12 @@ const Team = {
 const User = {
 
   findById (id) {
-    return fetch(`${BASE_URL}/users/${id}`)
+    return fetch(`${BASE_URL}/users/${id}`,
+    {
+      headers: {
+        'Authorization': getJWT()
+      }
+    })
       .then(res => res.json());
   }
 

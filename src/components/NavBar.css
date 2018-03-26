@@ -2,7 +2,9 @@ nav.uk-navbar-container[uk-navbar] {
   background-color: #f27c61;
 }
 
-nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a {
+#navbar-greeting,
+nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a
+{
   color: rgb(255, 255, 255, 0.9);
   font-weight: 200;
   font-size: 15px;
@@ -21,6 +23,10 @@ nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a:hover {
 
 #logo {
   width: 50px;
+}
+
+#navbar-greeting {
+  margin-right: 15px;
 }
 
 @media (min-width: 640px) {

@@ -2,8 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
-function NavBar () {
-  return(
+function NavBar (props) {
+
+  const { user, onSignOut } = props;
+
+  const handleSignOut = event => {
+    event.preventDefault();
+    onSignOut();
+  };
+
+  return (
     <nav className="uk-navbar-container uk-light" uk-navbar="">
       <div className="uk-navbar-left">
         <ul className="uk-navbar-nav">
@@ -16,12 +24,19 @@ function NavBar () {
         </ul>
       </div>
 
-      <div className="uk-navbar-right">
-        <ul className="uk-navbar-nav">
-          <li><NavLink className="uk-navbar-item" exact to={`/users/44`}>My Profile</NavLink></li>
-          <li><NavLink className="uk-navbar-item" exact to={`/teams/14`}>My Team</NavLink></li>
-        </ul>        
-      </div>
+      {
+        user ?
+          <div className="uk-navbar-right">
+            <span id="navbar-greeting">hi, {user.user_name}</span>
+            <ul className="uk-navbar-nav">
+              <li><NavLink className="uk-navbar-item" exact to={`/users/${user.user_id}`}>My Profile</NavLink></li>
+              <li><NavLink className="uk-navbar-item" exact to={`/teams/${user.team_id}`}>My Team</NavLink></li>
+              <li><a className="uk-navbar-item" onClick={handleSignOut}>Sign Out</a></li>
+            </ul>        
+          </div>
+          : 
+          <span></span>
+      }
     </nav>
   );
 }
