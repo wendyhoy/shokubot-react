@@ -68,7 +68,9 @@ class TeamShowPage extends Component {
                   Date: {answer.date},
                   Autonomy: {answer.autonomy},
                   Complexity: {answer.complexity},
-                  Reward: {answer.reward}
+                  Reward: {answer.reward},
+                  Daily Count: {answer.daily_count},
+                  Total Count: {answer.total_count}
                 </li>
               )
             }
