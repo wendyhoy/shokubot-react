@@ -3,6 +3,7 @@ import { User } from '../lib/requests';
 import ErrorPage from './ErrorPage';
 import LoadingPage from './LoadingPage';
 import BarGraph from './BarGraph';
+import DonutGraph from './DonutGraph';
 import moment from 'moment';
 
 class UserShowPage extends Component {
@@ -58,7 +59,16 @@ class UserShowPage extends Component {
     const { user_name, team_name, answers=[] } = user;
     
     let allAnswers = [];
+    let automonySummary = 0;
+    let complexitySummary = 0;
+    let rewardSummary = 0;
+
     if (answers.length > 0) {
+
+      // Save the last cumulative average
+      automonySummary = answers[answers.length-1].autonomy;
+      complexitySummary = answers[answers.length-1].complexity;
+      rewardSummary = answers[answers.length-1].reward;
 
       // Need to parse array, add blank entries for days that were skipped
       allAnswers[0] = answers[0];
@@ -108,23 +118,56 @@ class UserShowPage extends Component {
     return (
       <div className="uk-container">
         <header className="uk-margin-large-top uk-margin-large-bottom">
-          <h1 className="uk-heading-primary">{user_name}</h1>
+          <h1 className="uk-heading-primary">my profile
+            <span className="uk-margin-small-left uk-text-lead uk-text-muted">{user_name} | {team_name}</span>
+          </h1>
         </header>
         <main>
-          <p>{team_name}</p>
 
+          <div className="uk-child-width-1-3" uk-grid="">              
+            <div>
+              <DonutGraph 
+                percentage={automonySummary} 
+                id="autonomy-summary" 
+                color="rgb(255,184,76,1.0)"
+                label="autonomy"
+              />
+            </div>
+            <div>
+              <DonutGraph 
+                percentage={complexitySummary} 
+                id="complexity-summary" 
+                color="rgb(144,217,108,1.0)"
+                label="complexity"
+              />
+            </div>
+            <div>
+              <DonutGraph 
+                percentage={rewardSummary} 
+                id="reward-summary" 
+                color="rgb(191,96,172,1.0)"
+                label="reward"
+              />
+            </div>
+          </div>
+
+          <h2 className="uk-heading-line"><span>autonomy</span></h2>
           <BarGraph 
             xAxis={dates} 
             yAxis={autonomy} 
             id="autonomy" 
             color="rgb(255,184,76,1.0)"
           />
+
+          <h2 className="uk-heading-line"><span>complexity</span></h2>
           <BarGraph 
             xAxis={dates} 
             yAxis={complexity} 
             id="complexity" 
             color="rgb(144,217,108,1.0)"
           />
+
+          <h2 className="uk-heading-line"><span>rewarded for effort</span></h2>
           <BarGraph 
             xAxis={dates} 
             yAxis={reward} 

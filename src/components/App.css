@@ -2,14 +2,47 @@ body {
   min-width: 600px;
 }
 
-h1.uk-heading-primary {
+header.uk-flex {
+  align-items: baseline;
+}
+
+h1.uk-heading-primary, h2.uk-heading-line {
   font-weight: 200;
 }
 
-p {
+p, span {
   font-weight: 200;
+  text-transform: lowercase;
 }
 
 p.uk-text-lead {
+  letter-spacing: 0.5px;
+}
+
+div.donut-container {
+  position: relative;
+}
+
+div.donut-background {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+div.donut-container > div.donut-background > p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+
+div.donut-container > div.donut-background > p.donut-number {
+  font-size: 40px;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+div.donut-container > div.donut-background > p.donut-label {
+  font-size: 13px;
+  font-weight: 200;
   letter-spacing: 0.5px;
 }
