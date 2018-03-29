@@ -2,6 +2,11 @@ body {
   min-width: 600px;
 }
 
+div#app {
+  min-height: 100vh;
+  position: relative;
+}
+
 header.uk-flex {
   align-items: baseline;
 }
@@ -41,8 +46,26 @@ div.donut-container > div.donut-background > p.donut-number {
   letter-spacing: 2px;
 }
 
+div.donut-container > div.donut-background > p.donut-number > span {
+  font-size: 20px;
+}
+
 div.donut-container > div.donut-background > p.donut-label {
   font-size: 13px;
   font-weight: 200;
   letter-spacing: 0.5px;
+}
+
+footer {
+  background-color: #f27c61;
+  bottom: -80px;
+  color: rgb(255, 255, 255, 0.9);
+  font-size: 12px;
+  height: 80px;
+  position: absolute;
+  width: 100%;
+}
+
+footer > p {
+  margin: 0;
 }

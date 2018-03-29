@@ -63,7 +63,7 @@ class App extends Component {
 
     return (
       <Router>
-        <div>
+        <div id="app">
           <NavBar user={user} onSignOut={this.signOut} />
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -93,6 +93,9 @@ class App extends Component {
               } 
             />
           </Switch>
+          <footer className="uk-flex uk-flex-center uk-flex-middle">
+            <p>&copy; 2018 shokubot</p>
+          </footer>
         </div>
       </Router>
     );

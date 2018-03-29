@@ -1,5 +1,7 @@
 nav.uk-navbar-container[uk-navbar] {
   background-color: #f27c61;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #navbar-greeting,
@@ -29,16 +31,9 @@ nav.uk-navbar-container.uk-light .uk-navbar-nav > li > a:hover {
   margin-right: 15px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1200px) {
   nav.uk-navbar-container[uk-navbar] {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-@media (min-width: 960px) {
-  nav.uk-navbar-container[uk-navbar] {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 55px;
+    padding-right: 55px;
   }
 }

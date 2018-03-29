@@ -116,20 +116,20 @@ class UserShowPage extends Component {
     const reward = allAnswers.map(answer => answer.reward);
 
     return (
-      <div className="uk-container">
-        <header className="uk-margin-large-top uk-margin-large-bottom">
+      <div className="uk-container uk-padding-large">
+        <header className="uk-margin-medium-bottom">
           <h1 className="uk-heading-primary">my profile
             <span className="uk-margin-small-left uk-text-lead uk-text-muted">{user_name} | {team_name}</span>
           </h1>
         </header>
         <main>
 
-          <div className="uk-child-width-1-3" uk-grid="">              
+          <div className="uk-child-width-1-3 uk-grid-medium uk-margin-large-bottom" uk-grid="">              
             <div>
               <DonutGraph 
                 percentage={automonySummary} 
                 id="autonomy-summary" 
-                color="rgb(255,184,76,1.0)"
+                color="rgb(255,194,102,1.0)"
                 label="autonomy"
               />
             </div>
@@ -137,7 +137,7 @@ class UserShowPage extends Component {
               <DonutGraph 
                 percentage={complexitySummary} 
                 id="complexity-summary" 
-                color="rgb(144,217,108,1.0)"
+                color="rgb(178,242,145,1.0)"
                 label="complexity"
               />
             </div>
@@ -145,7 +145,7 @@ class UserShowPage extends Component {
               <DonutGraph 
                 percentage={rewardSummary} 
                 id="reward-summary" 
-                color="rgb(191,96,172,1.0)"
+                color="rgb(242,145,225,1.0)"
                 label="reward"
               />
             </div>
@@ -156,7 +156,7 @@ class UserShowPage extends Component {
             xAxis={dates} 
             yAxis={autonomy} 
             id="autonomy" 
-            color="rgb(255,184,76,1.0)"
+            color="rgb(255,194,102,1.0)"
           />
 
           <h2 className="uk-heading-line"><span>complexity</span></h2>
@@ -164,15 +164,15 @@ class UserShowPage extends Component {
             xAxis={dates} 
             yAxis={complexity} 
             id="complexity" 
-            color="rgb(144,217,108,1.0)"
+            color="rgb(178,242,145,1.0)"
           />
 
-          <h2 className="uk-heading-line"><span>rewarded for effort</span></h2>
+          <h2 className="uk-heading-line"><span>reward</span></h2>
           <BarGraph 
             xAxis={dates} 
             yAxis={reward} 
             id="reward" 
-            color="rgb(191,96,172,1.0)"
+            color="rgb(242,145,225,1.0)"
           />
 
         </main>

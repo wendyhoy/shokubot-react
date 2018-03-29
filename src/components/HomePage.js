@@ -6,7 +6,7 @@ import './HomePage.css';
 function HomePage () {
 
   return (
-    <div className="uk-container uk-text-center">
+    <div className="uk-container uk-padding-large uk-text-center">
       <header className="uk-margin-large-top uk-margin-large-bottom">
         <h1 className="uk-heading-primary">shokubot</h1>
         <p className="uk-text-lead">

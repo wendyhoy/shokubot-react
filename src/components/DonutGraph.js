@@ -24,7 +24,7 @@ class DonutGraph extends Component {
             mode: ''
           },
           animation: {
-            duration: 3000,
+            duration: 1500,
             easing: 'easeOutQuad'
           }
         }
@@ -37,7 +37,7 @@ class DonutGraph extends Component {
     return (
       <div className="donut-container">
         <div className="donut-background uk-flex uk-flex-center uk-flex-middle uk-flex-column">
-          <p className="donut-number" style={{ color: color }}>{percentage}</p>
+          <p className="donut-number" style={{ color: color }}>{percentage}<span>%</span></p>
           <p className="donut-label uk-text-muted">{label}</p>
         </div>
         <canvas id={id} width="100" height="100"></canvas>
