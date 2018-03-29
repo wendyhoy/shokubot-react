@@ -79,8 +79,9 @@ class UserShowPage extends Component {
         const diff = next.diff(prev, 'days');
         
         for (let j=1; j<diff; j++) {
+          const yesterday = moment(allAnswers[allAnswers.length-1].date);
           allAnswers.push({
-            date: prev.add(j, 'days'),
+            date: yesterday.add(1, 'days'),
             autonomy: 0,
             complexity: 0,
             reward: 0

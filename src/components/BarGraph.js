@@ -4,8 +4,18 @@ import Chart from 'chart.js';
 class BarGraph extends Component {
 
   componentDidMount () {
-    const { xAxis, yAxis, id, color } = this.props;
+    const { xAxis, yAxis, counts, id, color } = this.props;
     const ctx = document.getElementById(id);
+
+    const labelCallback = (tooltipItem, data) => {
+      let label = `${tooltipItem.yLabel}%`;
+      if (counts) {
+        const count = counts[tooltipItem.index];
+        label += ` | ${count} answer${count > 1 ? 's' : ''}`;
+      }
+
+      return label;
+    };
 
     const myChart = new Chart(ctx, {
       type: 'bar',
@@ -37,17 +47,14 @@ class BarGraph extends Component {
             gridLines: {
               lineWidth: 0.3,
               offsetGridLines: false
-            },
-            // ticks: {
-            //   stepSize: 10
-            // }
-            // type: 'time',
-            // time: {
-            //   displayFormats: {
-            //     week: 'MMM D'
-            //   }
-            // }
+            }
           }],
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label: labelCallback
+          }
         },
         legend: false
       },
