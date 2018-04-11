@@ -2,7 +2,7 @@ import React from 'react';
 
 function AddToSlack () {
 
-  const REDIRECT_URL = `${process.env.REACT_APP_DOMAIN}/slack/teams`;
+  const REDIRECT_URL = `${process.env.REACT_APP_DOMAIN}/api/v1/teams/new`;
   const HREF = `https://slack.com/oauth/authorize?client_id=305695056211.305695845171&scope=bot,commands,chat:write:bot&redirect_uri=${encodeURIComponent(REDIRECT_URL)}`;
 
   return (

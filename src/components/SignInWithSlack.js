@@ -2,7 +2,7 @@ import React from 'react';
 
 function SignInWithSlack () {
 
-  const REDIRECT_URL = `${process.env.REACT_APP_DOMAIN}/slack/users`
+  const REDIRECT_URL = `${process.env.REACT_APP_DOMAIN}/api/v1/tokens/new`
   const HREF = `https://slack.com/oauth/authorize?scope=identity.basic&client_id=305695056211.305695845171&redirect_uri=${encodeURIComponent(REDIRECT_URL)}`;
 
   return (
